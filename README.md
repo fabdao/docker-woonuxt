@@ -119,7 +119,9 @@ Rendez-vous for woonuxt settings section and set like so... ( maybe advances opt
 
 `cp ./docker/woonuxt/.env.example ./src/woonuxt/.env`
 
-> modify .env with `GQL_HOST="http://wordpress-crm/graphql"`
+> modify GQL_HOST into .env
+
+`GQL_HOST="http://wordpress-crm/graphql"`
 
 ## Moment of truth
 
