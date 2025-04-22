@@ -1,0 +1,6 @@
+[submodule "docker/woonuxt"]
+	path = docker/woonuxt
+	url = https://github.com/scottyzen/woonuxt.git
+[submodule "docker/wordpress"]
+	path = docker/wordpress
+	url = https://github.com/WordPress/WordPress.git

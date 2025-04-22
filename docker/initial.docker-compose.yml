@@ -1,0 +1,76 @@
+networks:
+  external-network:
+    driver: bridge
+  local-network:
+    external: false
+
+volumes:
+  db_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./db/data
+      o: bind
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: "overlay"
+      o: "lowerdir=${PWD}/wordpress,upperdir=${PWD}/../src/wordpress,workdir=${PWD}/overlay/wordpress"
+      device: "overlay"
+  woonuxt_data:
+    driver: local
+    driver_opts:
+      type: "overlay"
+      o: "lowerdir=${PWD}/woonuxt,upperdir=${PWD}/../src/woonuxt,workdir=${PWD}/overlay/woonuxt"
+      device: "overlay"
+
+services:
+  mysql:
+    image: ${MYSQL_IMAGE_TAG}
+    container_name: mysql-db
+    volumes:
+      - db_data:/var/lib/mysql:rw
+    user: mysql
+    command: "--default-authentication-plugin=mysql_native_password"
+    networks:
+      - external-network
+    ports:
+      - "127.0.0.1:3306:3306"
+    restart: unless-stopped
+    env_file: .env
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u${MYSQL_USER}",
+          "-p${MYSQL_PASSWORD}",
+        ]
+
+      interval: 8s
+      timeout: 2s
+      retries: 3
+
+  wordpress:
+    image: ${WORDPRESS_IMAGE_TAG}
+    container_name: wordpress-crm
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - external-network
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    env_file: .env
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/80' || exit 1
+      interval: 8s
+      timeout: 2s
+      retries: 3
+      start_period: 90s
+    depends_on:
+      mysql:
+        condition: service_healthy
