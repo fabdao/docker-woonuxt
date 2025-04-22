@@ -1,30 +1,50 @@
 # docker-woonuxt
-Local DEV env : Docker + Woonuxt
 
-git clone git@github.com:fabdao/docker-woonuxt.git
-cd docker-woonuxt
+Welcome to this  humble repo to facilitate Woonuxt develop environment. Feel free to comment or correct...
 
-git submodule init
+# Step 1 : Clone and set up repo
+> Clone repo
 
-git submodule update
+`git clone git@github.com:fabdao/docker-woonuxt.git`
 
+> Navigate
 
-mv initial.docker-compose.yml docker-compose.yml
-mv .env.example .env
+`cd docker-woonuxt`
 
-ERROR
-^DOCKER-error-mySQL.png
-FIX
+> Fetch git submodule Woonuxt and Wordpres
 
-docker compose down
-Inside Docker folder
-sudo chown -R 999:999 ./db/data
-sudo chmod 775 ./db/data
+`git submodule init`
 
-REPRISE .ENV dans docker
-MYSQL_USER=sqlUser
-WORDPRESS_DB_USER=sqlUser
-doit etre similaire
+`git submodule update`
+
+# Step 2 : Initiate Wordpress DataBase without reverse proxy service
+> Rename initial docker compose file for run
+
+`mv initial.docker-compose.yml docker-compose.yml`
+
+> Prepare .env file
+
+`cp .env.example .env`
+
+> Try to run docker
+
+`docker compose up`
+
+## Troubleshooting mySQL
+
+### Error
+![SQL error](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-error-mySQL.png)
+
+### FIX
+> Unmount docker containers
+
+`docker compose down`
+
+> Update permissions for DB folder ( we are still inside Docker folder)
+
+`sudo chown -R 999:999 ./db/data`
+
+`sudo chmod 775 ./db/data`
 
 GO to
 http://localhost
