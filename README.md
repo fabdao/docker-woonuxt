@@ -48,6 +48,21 @@ Welcome to this  humble repo to facilitate Woonuxt develop environment. Feel fre
 
 `sudo chmod 775 ./db/data`
 
+## Troubleshooting Docker's volumes
+
+### Error
+![Volumes error](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-error-volumes-overlay2.png)
+
+### Check if Docker is using the correct FileSystem :
+
+> Display docker's infos : 
+`sudo chown -R 999:999 ./db/data`
+> Wrong output :
+> ![overlay output](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-infos-overlayFS.png)
+> Correct output :
+> ![overlay2 output](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-infos-overlay2.png)
+
+
 ## Set up Wordpress and required plugins
 
 Open your browser to `http://localhost`, normally at this point you should be able to see this screen :
