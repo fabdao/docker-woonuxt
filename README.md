@@ -60,9 +60,11 @@ Welcome to this  humble repo to facilitate Woonuxt develop environment. Feel fre
 `sudo chown -R 999:999 ./db/data`
 
 > Wrong output :
+
 ![overlay output](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-infos-overlayFS.png)
 
 > Correct output :
+
 ![overlay2 output](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-infos-overlay2.png)
 
 
