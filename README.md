@@ -57,7 +57,7 @@ Welcome to this  humble repo to facilitate Woonuxt develop environment. Feel fre
 
 > Display docker's infos : 
 
-`sudo chown -R 999:999 ./db/data`
+`sudo docker info | grep -i overlay`
 
 > Wrong output :
 
