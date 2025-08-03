@@ -1,6 +1,9 @@
 networks:
   external-network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
   local-network:
     external: false
 
@@ -9,19 +12,19 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: ./db/data
+      device: ./docker/db/data
       o: bind
   wordpress_data:
     driver: local
     driver_opts:
       type: "overlay"
-      o: "lowerdir=${PWD}/wordpress,upperdir=${PWD}/../src/wordpress,workdir=${PWD}/overlay/wordpress"
+      o: "lowerdir=${PWD}/docker/wordpress,upperdir=${PWD}/src/wordpress,workdir=${PWD}/docker/overlay/wordpress"
       device: "overlay"
   woonuxt_data:
     driver: local
     driver_opts:
       type: "overlay"
-      o: "lowerdir=${PWD}/woonuxt,upperdir=${PWD}/../src/woonuxt,workdir=${PWD}/overlay/woonuxt"
+      o: "lowerdir=${PWD}/docker/woonuxt,upperdir=${PWD}/src/woonuxt,workdir=${PWD}/docker/overlay/woonuxt"
       device: "overlay"
 
 services:
@@ -33,7 +36,8 @@ services:
     user: mysql
     command: "--default-authentication-plugin=mysql_native_password"
     networks:
-      - external-network
+      external-network:
+        ipv4_address: 172.28.0.2
     ports:
       - "127.0.0.1:3306:3306"
     restart: unless-stopped
@@ -45,7 +49,9 @@ services:
           "mysqladmin",
           "ping",
           "-h",
-          "localhost",
+          "172.28.0.2",
+          "-P",
+          "3306",
           "-u${MYSQL_USER}",
           "-p${MYSQL_PASSWORD}",
         ]
@@ -60,7 +66,8 @@ services:
     volumes:
       - wordpress_data:/var/www/html
     networks:
-      - external-network
+      external-network:
+        ipv4_address: 172.28.0.3
     ports:
       - "80:80"
     restart: unless-stopped
@@ -74,3 +81,20 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+
+  # woonuxt:
+  #   image: ${WOONUXT_IMAGE_TAG}
+  #   container_name: woonuxt
+  #   env_file: .env
+  #   working_dir: /var/www
+  #   volumes:
+  #     - woonuxt_data:/var/www
+  #   command: bash -c "npm install && npm run dev"
+  #   networks:
+  #     external-network:
+  #       ipv4_address: 172.28.0.4
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     wordpress:
+  #       condition: service_healthy
