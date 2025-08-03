@@ -51,10 +51,10 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 ## Troubleshooting mySQL
 
-### Error :: mysql :: healthcheck
+### Error :: mysql :: healthcheck ❌💾🧑‍⚕️
 ![SQL error](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-error-mySQL.png)
 
-### Fix :: mysql :: healthcheck
+### Fix :: mysql :: healthcheck ✔️💾🧑‍⚕️
 > Update permissions for DB folder
 
 `sudo chown -R 999:999 ./docker/db/data`
@@ -63,10 +63,10 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 ## Troubleshooting Docker's volumes
 
-### Error :: filesystem :: overlay
+### Error :: filesystem :: overlay ❌📁🔁
 ![Volumes error](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-error-volumes-overlay2.png)
 
-### Check if Docker is using the correct FileSystem :
+### Check if Docker is using the correct FileSystem
 
 > Display docker's infos : 
 
@@ -80,11 +80,9 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 ![overlay2 output](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-infos-overlay2.png)
 
-### Fix :: filesystem :: overlay
+### Fix :: filesystem :: overlay ✔️📁🔁
 
-> Prérequiste : please take time to check [docker's overlay official documentation](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) ☕
->
-> 
+> Prérequiste : please take time to check [docker's overlay official documentation](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) ☕ 
 
 ## Set up Wordpress and required plugins
 
@@ -100,20 +98,20 @@ Go to wordpress admin panel and reach the plugin section. From there you will be
 
 ## Troubleshooting manual upload
 
-### Error : The uploaded file exceeds the upload_max_filesize
+### Error : The uploaded file exceeds the upload_max_filesize ❌
 
 ![Upload error max size](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-uploaded-file-exceeds.png)
 
-### Fix : Modify .htaccess
+### Fix : Modify .htaccess ✔️
 
 Locate .htaccess at `src/wordpress/.htaccess` and add at the bottom of the file :
 > `php_value upload_max_filesize 256M`
 
-### Error : Unable the write the wordpress upload folder
+### Error : Unable the write the wordpress upload folder ❌
 
 ![Upload folder locked](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-permissions.png)
 
-### Fix : Set Wordpress folder permissions
+### Fix : Set Wordpress folder permissions ✔️
 
 Locate the wordpress folder inside the docker one and try the change permission to www-data :
 
