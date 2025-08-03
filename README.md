@@ -67,6 +67,10 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 ![overlay2 output](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-infos-overlay2.png)
 
+### Fix :: filesystem :: overlay
+
+> Prérequiste : check docker's overlay official documentation
+![Docker overlay documentation](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/)
 
 ## Set up Wordpress and required plugins
 
