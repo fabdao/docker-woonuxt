@@ -1,18 +1,18 @@
 # docker-woonuxt
 
-Welcome to this  humble repo to facilitate Woonuxt develop environment. Feel free to comment or correct...
+Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free to comment or correct...
 
 # Step 1 : Clone and set up repo
 
-> Clone repo
+> Clone repo 🥷
 
 `git clone git@github.com:fabdao/docker-woonuxt.git`
 
-> Navigate
+> Navigate 🚣
 
 `cd docker-woonuxt`
 
-> Fetch git submodule Woonuxt and Wordpres
+> Fetch git submodule Woonuxt and Wordpres 🥷🍃🪵
 
 `git submodule init`
 
@@ -20,15 +20,15 @@ Welcome to this  humble repo to facilitate Woonuxt develop environment. Feel fre
 
 # Step 2 : Initiate Wordpress DataBase without reverse proxy service
 
-> Rename initial docker compose file for run
+> Rename initial docker compose file for run ⚒️🐋
 
-`mv initial.docker-compose.yml docker-compose.yml`
+`cp docker/initial.docker-compose.yml docker-compose.yml`
 
-> Prepare .env file
+> Prepare .env file ☔⚠️🔫
 
-`cp .env.example .env`
+`cp docker/.env.example .env`
 
-> Try to run docker
+> Try to run docker 🐳
 
 `docker compose up`
 
