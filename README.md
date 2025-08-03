@@ -94,7 +94,9 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 > Stop Docker `sudo systemctl stop docker`
 
-> Edit `/etc/docker/daemon.json`. If it doesn't yet exist, create it. Assuming that the file was empty, add the following contents : `{ "storage-driver": "overlay2" }`
+> Edit `/etc/docker/daemon.json`. If it doesn't yet exist, create it.
+
+> Assuming that the file was empty, add the following contents : `{ "storage-driver": "overlay2" }`
 
 > Start Docker `sudo systemctl stop start`
 
