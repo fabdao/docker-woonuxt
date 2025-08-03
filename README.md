@@ -1,6 +1,7 @@
 # docker-woonuxt
 
-Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free to comment or correct. Due to the choice of Overlay2 filesysem for docker... should be working only on linux and maybe on mac.
+Welcome to this humble repo to facilitate Woonuxt development environment. Feel free to comment or correct. 
+Due to the choice of Overlay2 filesysem for docker... should be working only on linux and maybe on mac.
 
 # Step 1 : Clone and set up repo
 
