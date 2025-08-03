@@ -32,6 +32,17 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 `docker compose up`
 
+### Command :: docker :: logs
+> Display Docker log´s
+
+`docker compose logs mysql-db`
+
+### Command :: docker :: logs
+> Display Docker log´s
+`docker compose logs mysql-db`
+
+
+
 ## Troubleshooting mySQL
 
 ### Error :: mysql :: healthcheck
@@ -44,9 +55,9 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 > Update permissions for DB folder ( we are still inside Docker folder)
 
-`sudo chown -R 999:999 ./db/data`
+`sudo chown -R 999:999 ./docker/db/data`
 
-`sudo chmod 775 ./db/data`
+`sudo chmod -R 770 ./docker/db/data`
 
 ## Troubleshooting Docker's volumes
 
