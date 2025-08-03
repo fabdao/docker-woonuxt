@@ -135,8 +135,12 @@ Open your browser to `http://localhost`, normally at this point you should be ab
 
 ### Fix : Modify .htaccess ✔️
 
-Locate .htaccess at `src/wordpress/.htaccess` and add at the bottom of the file :
-> `php_value upload_max_filesize 256M`
+> Copy .htaccess from `src/wordpress/.htaccess` to `docker/wordpress/.htaccess` :
+> Edit `docker/wordpress/.htaccess` uncommenting the bottom line `php_value upload_max_filesize 256M`
+> Reset wordpress container folder permission `sudo chown -R www-data:www-data docker/wordpress`
+
+> Verify permission inside wordpress container `docker exec -i wordpress-crm ls -l /var/www/html/.htaccess`
+> Verify .htaccess inside wordpress container `docker exec -i wordpress-crm cat /var/www/html/.htaccess` 
 
 ### Error : Unable the write the wordpress upload folder ❌
 
@@ -144,9 +148,7 @@ Locate .htaccess at `src/wordpress/.htaccess` and add at the bottom of the file 
 
 ### Fix : Set Wordpress folder permissions ✔️
 
-Locate the wordpress folder inside the docker one and try the change permission to www-data :
-
-`sudo chown -R www-data:www-data wordpress`
+> Reset wordpress container folder permission `sudo chown -R www-data:www-data docker/wordpress`
 
 ## Install others required pluging ( Woocommerce, GraphQL and Headless-Login)
 
