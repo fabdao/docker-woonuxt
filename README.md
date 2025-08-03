@@ -32,16 +32,13 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 `docker compose up`
 
-### Command :: docker :: logs
-> Display Docker log´s
+## Command line helper 
 
-`docker compose logs mysql-db`
+### Display :: docker :: logs
+> Display Docker log´s `docker compose logs mysql-db`
 
-### Command :: docker :: logs
-> Display Docker log´s
-`docker compose logs mysql-db`
-
-
+### Display :: docker :: inspect
+> Display Docker log´s `docker inspect mysql-db`
 
 ## Troubleshooting mySQL
 
