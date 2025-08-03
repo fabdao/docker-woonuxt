@@ -121,8 +121,10 @@ Open your browser to `http://localhost`, normally at this point you should be ab
 
 ## Install "Woonuxt Settings" plugin
 
-Go to wordpress admin panel and reach the plugin section. From there you will be able to manually install the woonuxt-setting plugin. [ ZIP to upload is located at `assets/woonuxt/woonuxt-settings.zip` ]
+### Download [Woonuxt Settings](https://woonuxt.com/) plugin 📦
+> An outdated ZIP to upload is also located at `assets/woonuxt/woonuxt-settings.zip`
 
+### Go to wordpress admin panel and install 👷
 ![Upload woonuxt settings](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-upload-woonuxt-settings.png)
 
 ## Troubleshooting manual upload
