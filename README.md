@@ -94,11 +94,7 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 > Stop Docker `sudo systemctl stop docker`
 
-> Edit `/etc/docker/daemon.json`. If it doesn't yet exist, create it. Assuming that the file was empty, add the following contents.
-
-> {
->    "storage-driver": "overlay2"
-> }
+> Edit `/etc/docker/daemon.json`. If it doesn't yet exist, create it. Assuming that the file was empty, add the following contents : `{ "storage-driver": "overlay2" }`
 
 > Start Docker `sudo systemctl stop start`
 
@@ -136,10 +132,13 @@ Open your browser to `http://localhost`, normally at this point you should be ab
 ### Fix : Modify .htaccess ✔️
 
 > Copy .htaccess from `src/wordpress/.htaccess` to `docker/wordpress/.htaccess` :
+
 > Edit `docker/wordpress/.htaccess` uncommenting the bottom line `php_value upload_max_filesize 256M`
+
 > Reset wordpress container folder permission `sudo chown -R www-data:www-data docker/wordpress`
 
 > Verify permission inside wordpress container `docker exec -i wordpress-crm ls -l /var/www/html/.htaccess`
+
 > Verify .htaccess inside wordpress container `docker exec -i wordpress-crm cat /var/www/html/.htaccess` 
 
 ### Error : Unable the write the wordpress upload folder ❌
