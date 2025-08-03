@@ -171,9 +171,14 @@ Import `assets/sample-data/sample_products.xml`
 
 ![dummy-import](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-Import-dummies-product.png)
 
+### Enable GraphQL public introspection
+
+Rendez-vous at GraphQL > Settings > WPGraphQL General Settings section and set like so...
+![WP-GQL-intro](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/GraphQL-public-introspection.png)
+
 ### Set-up Headless Login pluging
 
-Rendez-vous for woonuxt settings section and set like so... ( maybe advances options buttons should be toggle at the upper-right of the screen)
+Rendez-vous at GraphQL > Settings > Headless section and set like so... ( maybe advances options buttons should be toggle at the upper-right of the screen)
 
 ![HLS-providers](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-HLS-providers.png)
 ![WP-HLS-Cookies](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-HLS-Cookies.png)
