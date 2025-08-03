@@ -82,7 +82,34 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 ### Fix :: filesystem :: overlay ✔️📁🔁
 
-> Prérequiste : please take time to check [docker's overlay official documentation](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) ☕ 
+> Prérequiste : please take time to follow this guide (5min) : [docker's overlay official documentation](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) ☕ 
+
+> Sumup from documentation above ☝️
+
+### System :: docker :: stop 🧑‍💻🐋❌
+> Stop Docker `sudo systemctl stop docker`
+
+Edit /etc/docker/daemon.json. If it doesn't yet exist, create it. Assuming that the file was empty, add the following contents.
+
+{
+  "storage-driver": "overlay2"
+}
+
+Docker doesn't start if the daemon.json file contains invalid JSON.
+
+### System :: docker :: start 🧑‍💻🐋✔️
+> Start Docker `sudo systemctl stop start`
+
+ Verify that the daemon is using the overlay2 storage driver. Use the docker info command and look for Storage Driver and Backing filesystem.
+ docker info
+Containers: 0
+Images: 0
+Storage Driver: overlay2
+ Backing Filesystem: xfs
+ Supports d_type: true
+ Native Overlay Diff: true
+<...>
+
 
 ## Set up Wordpress and required plugins
 
