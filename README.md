@@ -1,6 +1,6 @@
 # docker-woonuxt
 
-Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free to comment or correct...
+Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free to comment or correct. Due to the choice of Overlay2 filesysem for docker... should be working only on linux and maybe on mac.
 
 # Step 1 : Clone and set up repo
 
@@ -34,10 +34,10 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 ## Troubleshooting mySQL
 
-### Error
+### Error :: mysql :: healthcheck
 ![SQL error](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-error-mySQL.png)
 
-### Fix
+### Fix :: mysql :: healthcheck
 > Unmount docker containers
 
 `docker compose down`
@@ -50,7 +50,7 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 ## Troubleshooting Docker's volumes
 
-### Error
+### Error :: filesystem :: overlay
 ![Volumes error](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-error-volumes-overlay2.png)
 
 ### Check if Docker is using the correct FileSystem :
