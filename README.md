@@ -49,6 +49,12 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 ### Display :: docker :: inspect 🖵🐋🍳
 > Display Docker log´s `docker inspect mysql-db`
 
+### System :: docker :: stop 🧑‍💻🐋❌
+> Stop Docker `sudo systemctl stop docker`
+
+### System :: docker :: start 🧑‍💻🐋✔️
+> Start Docker `sudo systemctl stop start`
+
 ## Troubleshooting mySQL
 
 ### Error :: mysql :: healthcheck ❌💾🧑‍⚕️
@@ -84,10 +90,14 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 > Prérequiste : please take time to follow this guide (5min) : [docker's overlay official documentation](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) ☕ 
 
-> Sumup from documentation above ☝️
+### Sumup for lazy devs from documentation above ☝️
 
-### System :: docker :: stop 🧑‍💻🐋❌
 > Stop Docker `sudo systemctl stop docker`
+> Edit `/etc/docker/daemon.json`. If it doesn't yet exist, create it. Assuming that the file was empty, add the following contents.
+> Start Docker `sudo systemctl stop start`
+> `{
+  "storage-driver": "overlay2"
+}`
 
 Edit /etc/docker/daemon.json. If it doesn't yet exist, create it. Assuming that the file was empty, add the following contents.
 
@@ -97,8 +107,7 @@ Edit /etc/docker/daemon.json. If it doesn't yet exist, create it. Assuming that 
 
 Docker doesn't start if the daemon.json file contains invalid JSON.
 
-### System :: docker :: start 🧑‍💻🐋✔️
-> Start Docker `sudo systemctl stop start`
+
 
  Verify that the daemon is using the overlay2 storage driver. Use the docker info command and look for Storage Driver and Backing filesystem.
  docker info
