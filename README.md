@@ -74,7 +74,7 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 ### Check if Docker is using the correct FileSystem
 
-> Display docker's infos : 
+> Display docker's infos :
 
 `sudo docker info | grep -i overlay`
 
@@ -88,9 +88,9 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 ### Fix :: filesystem :: overlay ✔️📁🔁
 
-> Prérequiste : please take time to follow this guide (5min) : [docker's overlay official documentation](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) ☕ 
+> Prérequiste : please take time to follow this guide (5min) : [docker's overlay official documentation](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) ☕
 
-### Sumup for lazy devs from documentation above ☝️
+### Sum up for lazy devs from documentation above ☝️
 
 > Stop Docker `sudo systemctl stop docker`
 
@@ -141,7 +141,7 @@ Open your browser to `http://localhost`, normally at this point you should be ab
 
 > Verify permission inside wordpress container `docker exec -i wordpress-crm ls -l /var/www/html/.htaccess`
 
-> Verify .htaccess inside wordpress container `docker exec -i wordpress-crm cat /var/www/html/.htaccess` 
+> Verify .htaccess inside wordpress container `docker exec -i wordpress-crm cat /var/www/html/.htaccess`
 
 ### Error : Unable the write the wordpress upload folder ❌
 
@@ -163,56 +163,37 @@ Open your browser to `http://localhost`, normally at this point you should be ab
 
 ### Import dummy sample products :
 
-Install Wordpress importer and run it !
+> Go to Tools > Import and install and run Wordpress importer (last one)!
 
 ![worpdress-importer](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-import-tools.png)
 
-Import `assets/sample-data/sample_products.xml`
+> Import `assets/sample-data/sample_products.xml`
 
 ![dummy-import](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-Import-dummies-product.png)
 
 ### Enable GraphQL public introspection
 
-Rendez-vous at GraphQL > Settings > WPGraphQL General Settings section and set like so...
+> Rendez-vous at GraphQL > Settings > WPGraphQL General Settings section and set like so...
 ![WP-GQL-intro](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/GraphQL-public-introspection.png)
 
 ### Set-up Headless Login pluging
 
-Rendez-vous at GraphQL > Settings > Headless section and set like so... ( maybe advances options buttons should be toggle at the upper-right of the screen)
+> Rendez-vous at GraphQL > Settings > Headless section and set like so... ( maybe advanced options buttons should be toggle at the upper-right of the screen)
 
 ![HLS-providers](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-HLS-providers.png)
-![WP-HLS-Cookies](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-HLS-Cookies.png)
 ![WP-HLS-AccessCTRL](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-HLS-AccessCTRL.png)
+![WP-HLS-Cookies](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/WP-HLS-Cookies.png)
 
-# Step 3 : Start Woonuxt with reverse proxy service
+# Step 3 : Start Woonuxt
 
-> Unmount docker container
+> Edit `docker-compose.yml` : uncomment the woonuxt service to enable it
 
-`docker compose down`
-
-> Erase docker volumes
-
-`docker volume rm $(docker volume ls -q)`
-
-> Reset docker file without reverse proxy
-
-`mv docker-compose.yml initial.docker-compose.yml`
-
-> Enable docker file with reverse proxy
-
-`mv regular.docker-compose.yml docker-compose.yml`
-
-> Copy .env from docker/woonux to src/woonuxt
-
-`cp ./docker/woonuxt/.env.example ./src/woonuxt/.env`
-
-> modify GQL_HOST into .env
-
-`GQL_HOST="http://wordpress-crm/graphql"`
+![DOCKER-woonuxt-disable](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-woonuxt-service-off.png)
+![DOCKER-woonuxt-enable](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-woonuxt-service-on.png)
 
 ## Moment of truth
 
-> `docker compose up`
+> Rebuild your stack : `docker compose up` 🤞
 
 ![DOCKER-success-with-woonuxt](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-success-with-woonuxt.png)
 

@@ -13,6 +13,6 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # PHP settings (only works with mod_php)
-# php_value upload_max_filesize 256M
+php_value upload_max_filesize 256M
 
 # END WordPress
