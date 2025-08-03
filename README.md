@@ -102,20 +102,11 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 > Start Docker `sudo systemctl stop start`
 
-Docker doesn't start if the daemon.json file contains invalid JSON.
+⚠️ Docker doesn't start if the `daemon.json` file contains invalid JSON. ⚠️
 
+> Verify that the daemon is using the overlay2 storage driver `docker info`
 
-
- Verify that the daemon is using the overlay2 storage driver. Use the docker info command and look for Storage Driver and Backing filesystem.
- docker info
-Containers: 0
-Images: 0
-Storage Driver: overlay2
- Backing Filesystem: xfs
- Supports d_type: true
- Native Overlay Diff: true
-<...>
-
+> Use the docker info command and look for Storage Driver `Storage Driver: overlay2`
 
 ## Set up Wordpress and required plugins
 
