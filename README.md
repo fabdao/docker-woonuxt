@@ -108,6 +108,11 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 > Use the docker info command and look for Storage Driver `Storage Driver: overlay2`
 
+### Remember the use the right docker engine 🤙🙀​
+### Change :: docker :: engine 🔁🐋🚂
+![Chamge Docker engine](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-change-builder.png)
+> In my case only `default` works...
+
 ## Set up Wordpress and required plugins
 
 Open your browser to `http://localhost`, normally at this point you should be able to see this screen :
