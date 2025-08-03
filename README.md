@@ -32,7 +32,16 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 
 `docker compose up`
 
-## Command line helper 
+## Command line helper
+
+### Display :: docker :: container
+> List ALL Running Containers `docker ps`
+
+### Display :: docker :: container -all
+> List ALL Running Containers (including STOPPED) `docker ps -a`
+
+### Stop :: docker :: container
+> Unmount Docker containers `docker compose down`
 
 ### Display :: docker :: logs
 > Display Docker log´s `docker compose logs mysql-db`
@@ -46,10 +55,6 @@ Welcome to this humble repo to facilitate Woonuxt develop environment. Feel free
 ![SQL error](https://github.com/fabdao/docker-woonuxt/blob/main/assets/img/DOCKER-error-mySQL.png)
 
 ### Fix :: mysql :: healthcheck
-> Unmount docker containers
-
-`docker compose down`
-
 > Update permissions for DB folder ( we are still inside Docker folder)
 
 `sudo chown -R 999:999 ./docker/db/data`
