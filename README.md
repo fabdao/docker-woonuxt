@@ -3,6 +3,8 @@
 Welcome to this humble repo to facilitate Woonuxt development environment. Feel free to comment or correct. 
 Due to the choice of Overlay2 filesysem for docker... should be working only on linux and maybe on mac.
 
+# Step 0 : Visit (WooNuxt official website)[https://woonuxt.com]
+
 # Step 1 : Clone and set up repo
 
 > Clone repo 🥷
